@@ -8,7 +8,11 @@ RUN TZ=Asia/Taipei && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ
     && dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get clean autoclean && apt-get autoremove --yes
 
-RUN locale-gen zh_TW && locale-gen zh_TW.UTF-8 && update-locale LANG="zh_TW.UTF-8" LANGUAGE="zh_TW"
+RUN locale-gen zh_TW.UTF-8
+ENV LANG zh_TW.UTF-8
+ENV LANGUAGE zh_TW
+ENV LC_ALL zh_TW.UTF-8
+
 ADD ./envvars /etc/apache2/envvars
 ADD python_env.sh /python_env.sh
 RUN chmod +x /python_env.sh
