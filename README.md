@@ -4,6 +4,11 @@ This Dockerfile is based on Ubuntu, with Python 3 and Apache installed, which ca
 
 * Uses Ubuntu 18.04 as a base image.
 
+Hot to use
+---
+1. `docker build -t python-apache2-docker:latest .`
+
+
 Environment
 ---
 * Ubuntu 18.04
